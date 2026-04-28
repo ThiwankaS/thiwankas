@@ -3,188 +3,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thiwanka Somachandra — Systems Developer</title>
-
+  <title>Thiwanka Somachandra — Systems Software Developer</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="app.js"></script>
 
-  <meta name="description" content="Systems-focused CV of Thiwanka Somachandra — C/C++, systems, graphics, tooling." />
-  <meta property="og:title" content="Thiwanka Somachandra — Systems Developer" />
-  <meta property="og:description" content="Systems/graphics in C/C++, Full-Stack (MERN), DevOps. Projects: minishell, miniRT, MERN app." />
+  <meta name="description" content="Thiwanka Somachandra — Systems software developer focused on C/C++, low-level engineering, tooling, and performance-minded applications." />
+  <meta property="og:title" content="Thiwanka Somachandra — Systems Software Developer" />
+  <meta property="og:description" content="Portfolio for systems programming in C/C++, graphics, UNIX internals, and engineering tooling." />
   <meta name="theme-color" content="#0a0f14" />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='black'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='64' fill='%2300ff88' font-family='monospace'%3E$%3C/text%3E%3C/svg%3E">
-
-  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Thiwanka Somachandra",
+    "jobTitle": "Systems Software Developer",
     "email": "mailto:thivankas@outlook.com",
     "url": "https://github.com/ThiwankaS",
     "sameAs": [
       "https://github.com/ThiwankaS",
       "https://www.linkedin.com/in/so-thiwanka/"
     ],
-    "knowsAbout": ["C","C++","JavaScript", "Systems","Graphics","Networking","Assembly"]
+    "knowsAbout": ["C", "C++", "Assembly", "UNIX", "Systems Programming", "Graphics", "Networking"]
   }
   </script>
 </head>
-
 <body>
-
-<header class="site-header container">
-  <div class="terminal-window">
-    <div class="term-bar">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-      <button id="modeToggle" class="mode-toggle" aria-label="Toggle theme">◇</button>
-    </div>
-
-    <pre class="path">thiwanka@hive:~</pre>
-    <h1 class="name"><span class="file"> THIWANKA SOMACHANDRA </span></h1>
-
-    <p class="tagline">Systems & Graphics (C/C++) · Tooling · DevOps · Full-Stack (MERN) · JavaScript </p>
-
-    <nav class="contact" aria-label="Contacts">
-      <a href="https://www.hel.fi/fi">Helsinki, Finland</a><span>│</span>
-      <a href="tel:+358451793030">(+358) 45 179 3030</a><span>│</span>
-      <a href="mailto:thivankas@outlook.com">thivankas@outlook.com</a><span>│</span>
-      <a href="https://github.com/ThiwankaS" target="_blank" rel="noopener">GitHub</a><span>│</span>
-      <a href="https://www.linkedin.com/in/so-thiwanka/" target="_blank" rel="noopener">LinkedIn</a><span>│</span>
-      <a href="Thiwankas.pdf" download>Download</a>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-
-  <div class="controls">
-    <button id="expandAll" class="btn" type="button">Expand all</button>
-    <button id="collapseAll" class="btn" type="button">Collapse all</button>
-  </div>
-
-  <!-- About -->
-  <details class="block" id="about" open>
-    <summary><span class="sum-title">About Me </span></summary>
-    <div class="content">
-      <p>
-        A student in Hive Helsinki, learning both coding and problem-solving. I am good at working
-        in challenging, autonomous, and collaborative environments, consistently focusing on
-        achieving measurable results with high integrity. A person with accountability, I possess
-        strong interpersonal and professional acumen. I am committed to continuous learning and
-        actively contribute to process improvements.
-      </p>
-    </div>
-  </details>
-
-  <!-- Skills -->
-  <details class="block" id="skills">
-    <summary><span class="sum-title">Technical Skills</span></summary>
-    <div class="content">
-      <ul class="pill-list">
-        <li>C</li><li>C++</li><li>Assembly</li><li>JavaScript</li><li>SQL</li>
-        <li>Systems</li><li>Graphics</li><li>Networking</li><li>Multithreading</li>
-        <li>Unix Signals</li><li>MiniLibX</li><li>wxWidgets</li>
-        <li>React</li><li>Express</li><li>Vite</li>
-        <li>Docker</li><li>CI/CD</li><li>Bash</li>
-        <li>MySQL</li><li>MariaDB</li><li>MongoDB</li>
-        <li>Git</li><li>Linux</li><li>macOS</li>
-      </ul>
-    </div>
-  </details>
-
-  <!-- Projects -->
-  <details class="block" id="projects">
-    <summary><span class="sum-title">Projects</span></summary>
-    <div class="content cards">
-
-      <article class="card">
-        <h3 class="subhead">minishell</h3>
-        <p>Bash-like shell — parsing, signals, pipes, processes.</p>
-        <p class="meta">C • Signals • Processes • Parsing</p>
-      </article>
-
-      <article class="card">
-        <h3 class="subhead">miniRT</h3>
-        <p>Ray tracer written in C — computation, rendering, math.</p>
-        <p class="meta">C • Graphics • Event loop</p>
-      </article>
-
-      <article class="card">
-        <h3 class="subhead">vocabularyApp</h3>
-        <p>Full MERN stack app — REST API, Mongo, CI/CD, Docker.</p>
-        <p class="meta">React • Express • MongoDB • Docker</p>
-      </article>
-
-      <article class="card">
-        <h3 class="subhead">Dictionary</h3>
-        <p>Converts large integers into words.</p>
-        <p class="meta">C • C++ • File I/O • wxWidgets</p>
-      </article>
-    </div>
-  </details>
-
-  <!-- Achievements -->
-  <details class="block" id="achievements">
-    <summary><span class="sum-title">Achievements</span></summary>
-    <div class="content">
-      <ul>
-        <li>QT Hackathon — Winning Team (2025)</li>
-        <li>Spreadsheet Samurai (2025)</li>
-        <li>Best Kaizen Award (2012)</li>
-      </ul>
-    </div>
-  </details>
-
-  <!-- Experience -->
-  <details class="block" id="experience">
-    <summary><span class="sum-title">Experience</span></summary>
-    <div class="content">
-      <p><strong>Team Leader (House Keeping) — Siskon Siivous Oy </strong> (2022 – Present)</p>
-      <p><strong>Operations Manager — Noble Vision Institute (Pvt) Ltd</strong> (2020 – 2022)</p>
-      <p><strong>Entrepreneur — Somasiri Rice Merchandisers (Pvt) Ltd</strong> (2016 – 2020)</p>
-      <p><strong>Executive Human Resources and Administration — MAS Active Trading (Pvt) Ltd</strong> (2012 – 2016)</p>
-    </div>
-  </details>
-
-  <!-- Education -->
-  <details class="block" id="education">
-    <summary><span class="sum-title">Education</span></summary>
-    <div class="content">
-      <ul class="edu">
-        <li><a href="https://www.hive.fi/">Hive Helsinki</a> — Peer-to-peer coding (2024 – Present)</li>
-        <li><a href="https://fullstackopen.com/en/">Full-Stack Open</a> — University of Helsinki (2023 – 2024)</li>
-        <li><a href="https://science.kln.ac.lk/">University of Kelaniya</a> — Bachelor of Science (Applied Mathematics, Pure MAthematics, Physics) (2010 – 2012)</li>
-        <li><a href="https://www.nibm.lk/course/diploma-in-computer-system-design-full-time">NIBM</a> — Diploma in Computer System Designing (2008 – 2010)</li>
-      </ul>
-    </div>
-  </details>
-
-  <!-- References -->
-  <details class="block" id="references">
-    <summary><span class="sum-title">References</span></summary>
-    <div class="content two-col">
-      <div>
-        <p><strong>Jenna Hokkanen</strong><br>
-        Service Supervisor — Siskon Siivous Oy<br>
-        <a href="tel:+358401906020">(+358) 40 190 6020</a></p>
+  <header class="site-header container">
+    <div class="terminal-window">
+      <div class="term-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <button id="modeToggle" class="mode-toggle" aria-label="Toggle theme">◇</button>
       </div>
-      <div>
-        <p><strong>Ishan Herath</strong><br>
-        Senior Software Engineer — Datadrivers Oy<br>
-        <a href="tel:+358451578815">(+358) 45 157 8815</a></p>
-      </div>
+      <pre class="path">thiwanka@system-node:~$ ./portfolio --profile</pre>
+      <h1 class="name"><span class="file">THIWANKA SOMACHANDRA</span></h1>
+      <p class="role-badge" aria-label="Job title"><span>Systems Software Developer (C/C++)</span></p>
+      <p class="tagline">Building reliable software close to the system layer: processes, memory, tooling, and performance.</p>
+      <nav class="contact" aria-label="Contacts" id="contactLinks"></nav>
     </div>
-  </details>
+  </header>
 
-</main>
+  <main class="container">
+    <section class="intro-flow" aria-label="Core narrative">
+      <p class="step"><span>01</span> Hello, I am Thiwanka.</p>
+      <p class="step"><span>02</span> I design and build systems-level software.</p>
+      <p class="step"><span>03</span> C/C++, UNIX internals, tooling, and performance.</p>
+    </section>
 
-<footer class="container site-footer">
-  © <span id="year"></span> Thiwanka Somachandra
-</footer>
+    <section class="process-band" aria-label="Engineering process">
+      <article>
+        <h2>Problem Analysis</h2>
+        <p>Understand runtime constraints, architecture boundaries, and failure modes before coding.</p>
+      </article>
+      <article>
+        <h2>Low-Level Implementation</h2>
+        <p>Build deterministic modules in C/C++ with focus on memory safety, correctness, and maintainability.</p>
+      </article>
+      <article>
+        <h2>Validation & Delivery</h2>
+        <p>Test edge cases, profile hot paths, and package solutions ready for real-world environments.</p>
+      </article>
+    </section>
 
+    <div class="controls">
+      <button id="expandAll" class="btn" type="button">Expand all</button>
+      <button id="collapseAll" class="btn" type="button">Collapse all</button>
+    </div>
+
+    <!-- Dynamic sections are mounted here by app.js -->
+    <section id="dynamicSections" aria-label="Profile sections"></section>
+  </main>
+
+  <footer class="container site-footer">
+    © <span id="year"></span> Thiwanka Somachandra
+  </footer>
 </body>
 </html>
