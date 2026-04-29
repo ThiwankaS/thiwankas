@@ -12,16 +12,16 @@
 }
 
 :root.light {
-  --bg: #f7fbff;
+  --bg: #f3f5f7;
   --panel: #ffffff;
   --panel-strong: #ffffff;
-  --text: #0c1620;
-  --muted: #4d6175;
-  --accent: #00743f;
-  --link: #004f80;
-  --border: #cfe0ee;
-  --pill: #e9f3fb;
-  --highlight: rgba(0, 116, 63, 0.12);
+  --text: #111827;
+  --muted: #4b5563;
+  --accent: #0f766e;
+  --link: #0b5cab;
+  --border: #d7dde5;
+  --pill: #f3f6fa;
+  --highlight: rgba(15, 118, 110, 0.1);
 }
 
 * {
@@ -34,10 +34,7 @@ html, body {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(1200px 700px at 92% -5%, rgba(29, 64, 89, 0.34), transparent 55%),
-    radial-gradient(900px 580px at -5% 20%, rgba(87, 242, 135, 0.07), transparent 60%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   font: 16px/1.6 "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
 }
@@ -49,11 +46,10 @@ body {
 }
 
 .terminal-window {
-  background: linear-gradient(180deg, #101a23, var(--panel));
+  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 20px 32px rgba(0, 0, 0, 0.25);
 }
 
 .term-bar {
@@ -243,26 +239,79 @@ details[open] > summary::before {
 }
 
 .content {
-  padding: 0.3rem 1rem 1rem;
+  padding: 0.55rem 1.05rem 1.15rem;
+}
+
+.content p {
+  margin: 0.4rem 0;
+  line-height: 1.72;
+}
+
+.content ul {
+  margin: 0.45rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.content li {
+  margin: 0.2rem 0;
 }
 
 .timeline {
   display: grid;
-  gap: 0.7rem;
+  gap: 1rem;
 }
 
 .timeline-item {
   border-left: 2px solid var(--border);
-  padding-left: 0.75rem;
+  padding-left: 1rem;
+  margin-left: 0.1rem;
 }
 
 .timeline-item h3 {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.3rem;
   font-size: 1rem;
 }
 
 .timeline-item p {
-  margin: 0.2rem 0;
+  margin: 0.28rem 0;
+  max-width: 74ch;
+}
+
+.timeline-title {
+  margin: 0 0 0.42rem;
+}
+
+.timeline-title-text,
+.timeline-title-link {
+  display: inline-block;
+  padding: 0.12rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--pill);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.timeline-title-link {
+  text-decoration: none;
+}
+
+.timeline-title-link:hover {
+  color: var(--link);
+  border-color: color-mix(in oklab, var(--border) 70%, var(--link));
+}
+
+.timeline-meta {
+  margin: 0.08rem 0 0.32rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+}
+
+.timeline-desc {
+  margin: 0;
+  color: color-mix(in oklab, var(--text) 88%, var(--muted));
+  line-height: 1.75;
 }
 
 .muted {

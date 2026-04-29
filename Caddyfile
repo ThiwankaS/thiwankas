@@ -8,8 +8,13 @@
   header @html Cache-Control "no-cache, no-store, must-revalidate"
   header @html ETag "{http.response.header.ETag}"
 
-  @assets path *.css *.js *.svg *.png *.jpg *.jpeg *.webp *.gif *.ico
-  header @assets Cache-Control "public, max-age=31536000, immutable"
+  # Keep CSS/JS revalidating so production reflects latest deploy quickly.
+  @codeAssets path *.css *.js
+  header @codeAssets Cache-Control "public, max-age=0, must-revalidate"
+
+  # Keep static media aggressively cached.
+  @mediaAssets path *.svg *.png *.jpg *.jpeg *.webp *.gif *.ico *.pdf
+  header @mediaAssets Cache-Control "public, max-age=31536000, immutable"
 
   # --- General security-ish headers in a regular header block ---
   header {

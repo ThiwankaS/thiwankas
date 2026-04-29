@@ -43,24 +43,51 @@
         type: "cards",
         content: [
           {
-            name: "minishell",
-            description: "Built a Bash-like shell with parsing, process control, pipes, redirections, and robust signal handling.",
-            stack: "C • UNIX • Signals • Parsing • Process Management"
+            name: "small_shader",
+            description: "Explores graphics fundamentals in C++, generating images from scratch and integrating CLI media tooling for rendering workflows.",
+            stack: "C++ • Computer Graphics • Rendering • CLI Tooling",
+            repo: "https://github.com/ThiwankaS/small_shader"
           },
           {
-            name: "miniRT",
-            description: "Implemented a ray tracer in C with core rendering math, scene parsing, and interactive viewport behavior.",
-            stack: "C • Graphics • Linear Algebra • Rendering Pipeline"
+            name: "Minishell",
+            description: "Custom Unix shell in C featuring command execution, pipelines, redirections, environment handling, and robust process/signal control.",
+            stack: "C • UNIX • Signals • Parsing • Process Management",
+            repo: "https://github.com/ThiwankaS/Minishell"
+          },
+          {
+            name: "Philosophers",
+            description: "Multithreaded concurrency simulation of the Dining Philosophers problem using mutexes/semaphores with deadlock and race-condition controls.",
+            stack: "C • Threads • Mutexes • Semaphores • Concurrency",
+            repo: "https://github.com/ThiwankaS/Philosophers"
+          },
+          {
+            name: "miniRt",
+            description: "Ray tracer in C that renders 3D scenes with geometric primitives, shadows, and lighting models such as Lambert and Phong.",
+            stack: "C • Ray Tracing • Linear Algebra • Rendering",
+            repo: "https://github.com/ThiwankaS/miniRt"
+          },
+          {
+            name: "movieDbSearch",
+            description: "Full-stack movie discovery platform using TypeScript, Python, MongoDB, and PostgreSQL with external API integration and social features.",
+            stack: "TypeScript • Python • MongoDB • PostgreSQL • APIs",
+            repo: "https://github.com/ThiwankaS/movieDbSearch"
+          },
+          {
+            name: "webserv",
+            description: "HTTP/1.1 web server in C++ with non-blocking I/O, config parsing, and CGI support, inspired by NGINX-like architecture.",
+            stack: "C++ • HTTP • Non-blocking I/O • CGI • Systems",
+            repo: "https://github.com/ThiwankaS/webserv"
           },
           {
             name: "vocabularyApp",
-            description: "Built a containerized full-stack service and automated delivery pipeline, applying backend reliability and operations discipline.",
+            description: "Containerized full-stack service with automated delivery workflows, focused on backend reliability and operational discipline.",
             stack: "Docker • CI/CD • API Design • Deployment Automation"
           },
           {
             name: "Dictionary",
-            description: "Created a number-to-word conversion tool handling large numeric ranges with deterministic output.",
-            stack: "C/C++ • File I/O • Algorithms • wxWidgets"
+            description: "Number-to-word conversion tool with deterministic output across large numeric ranges and edge-case handling.",
+            stack: "C/C++ • Algorithms • File I/O • wxWidgets",
+            repo: "https://github.com/ThiwankaS/Dictionary"
           }
         ]
       },
@@ -184,13 +211,13 @@
       <div class="timeline">
         ${items.map((item) => {
           const heading = item.link
-            ? `<a href="${item.link}" target="_blank" rel="noopener">${item.title}</a>`
-            : item.title;
+            ? `<a class="timeline-title-link" href="${item.link}" target="_blank" rel="noopener">${item.title}</a>`
+            : `<span class="timeline-title-text">${item.title}</span>`;
           return `
             <article class="timeline-item">
-              <h3>${heading}</h3>
-              <p class="muted">${item.organization} • ${item.period}</p>
-              <p>${item.summary}</p>
+              <h3 class="timeline-title">${heading}</h3>
+              <p class="timeline-meta">${item.organization} • ${item.period}</p>
+              <p class="timeline-desc">${item.summary}</p>
             </article>
           `;
         }).join("")}
@@ -219,6 +246,7 @@
               <h3 class="subhead">${project.name}</h3>
               <p>${project.description}</p>
               <p class="meta">${project.stack}</p>
+              ${project.repo ? `<p class="meta"><a href="${project.repo}" target="_blank" rel="noopener">Repository</a></p>` : ""}
             </article>
           `).join("")}
         </div>
