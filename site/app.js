@@ -302,6 +302,135 @@
     };
   }
 
+  // Decorative left-side tetris rain.
+  function initTetrisRain() {
+    const canvas = document.getElementById("tetrisRain");
+    if (!canvas) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Tetromino-inspired block patterns rendered as decorative rain.
+    const shapes = [
+      [[0, 0], [1, 0], [0, 1], [1, 1]],
+      [[0, 0], [1, 0], [2, 0], [3, 0]],
+      [[0, 0], [0, 1], [1, 1], [2, 1]],
+      [[2, 0], [0, 1], [1, 1], [2, 1]],
+      [[1, 0], [2, 0], [0, 1], [1, 1]],
+      [[0, 0], [1, 0], [1, 1], [2, 1]],
+      [[1, 0], [0, 1], [1, 1], [2, 1]]
+    ];
+
+    // Bright but controlled palette for both dark/light themes.
+    const colors = [
+      "#57f287", "#78cfff", "#f97316", "#a855f7",
+      "#fb7185", "#22d3ee", "#facc15", "#34d399"
+    ];
+
+    const state = {
+      width: 0,
+      height: 0,
+      dpr: 1,
+      pieces: [],
+      lastTime: 0,
+      spawnClock: 0
+    };
+
+    function randomBetween(min, max) {
+      return min + Math.random() * (max - min);
+    }
+
+    function pick(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function resize() {
+      // Keep canvas crisp on high-DPI displays.
+      state.dpr = window.devicePixelRatio || 1;
+      state.width = Math.max(96, Math.min(Math.floor(window.innerWidth * 0.18), 190));
+      state.height = window.innerHeight;
+      canvas.width = Math.floor(state.width * state.dpr);
+      canvas.height = Math.floor(state.height * state.dpr);
+      canvas.style.width = `${state.width}px`;
+      canvas.style.height = `${state.height}px`;
+      ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+    }
+
+    function createPiece() {
+      const shape = pick(shapes);
+      const cell = Math.round(randomBetween(18, 28));
+      const minX = 8;
+      const maxX = Math.max(minX + cell * 3, state.width - cell * 4 - 10);
+      return {
+        shape,
+        color: pick(colors),
+        cell,
+        x: randomBetween(minX, maxX),
+        y: -cell * randomBetween(3, 8),
+        // Slightly faster drift while staying calm/ambient.
+        speed: randomBetween(32, 70),
+        alpha: randomBetween(0.68, 0.92)
+      };
+    }
+
+    function drawPixelCell(x, y, size, color, alpha) {
+      const n = 3;
+      const gap = Math.max(1, Math.floor(size * 0.08));
+      const totalGap = gap * (n + 1);
+      const px = Math.max(2, Math.floor((size - totalGap) / n));
+      ctx.fillStyle = color;
+      ctx.globalAlpha = alpha;
+      for (let row = 0; row < n; row += 1) {
+        for (let col = 0; col < n; col += 1) {
+          const pxX = x + gap + col * (px + gap);
+          const pxY = y + gap + row * (px + gap);
+          ctx.fillRect(pxX, pxY, px, px);
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function drawPiece(piece) {
+      piece.shape.forEach(([sx, sy]) => {
+        drawPixelCell(
+          piece.x + sx * piece.cell,
+          piece.y + sy * piece.cell,
+          piece.cell,
+          piece.color,
+          piece.alpha
+        );
+      });
+    }
+
+    function animate(now) {
+      if (!state.lastTime) state.lastTime = now;
+      const delta = Math.min(64, now - state.lastTime);
+      state.lastTime = now;
+      state.spawnClock += delta;
+
+      // One active piece at a time for a cleaner left rail.
+      if (state.pieces.length === 0 && state.spawnClock > randomBetween(260, 520)) {
+        state.pieces.push(createPiece());
+        state.spawnClock = 0;
+      }
+
+      ctx.clearRect(0, 0, state.width, state.height);
+
+      state.pieces.forEach((piece) => {
+        piece.y += (piece.speed * delta) / 1000;
+        drawPiece(piece);
+      });
+
+      state.pieces = state.pieces.filter((piece) => piece.y < state.height + piece.cell * 6);
+      requestAnimationFrame(animate);
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+    requestAnimationFrame(animate);
+  }
+
   // Footer year.
   document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -310,4 +439,5 @@
   restoreOpen();
   wireAccordionEvents();
   wireSectionControls();
+  initTetrisRain();
 })();
