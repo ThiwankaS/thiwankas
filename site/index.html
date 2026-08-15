@@ -3,28 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thiwanka Somachandra — Systems Software Developer</title>
-  <link rel="stylesheet" href="styles.css?v=20260429-1" />
-  <script defer src="app.js?v=20260429-1"></script>
+  <title>Thiwanka Somachandra — C++ Software Engineer</title>
+  <link rel="stylesheet" href="styles.css?v=20260815-1" />
+  <script defer src="app.js?v=20260815-1"></script>
 
-  <meta name="description" content="Thiwanka Somachandra — Systems software developer focused on C/C++, low-level engineering, tooling, and performance-minded applications." />
-  <meta property="og:title" content="Thiwanka Somachandra — Systems Software Developer" />
-  <meta property="og:description" content="Portfolio for systems programming in C/C++, graphics, UNIX internals, and engineering tooling." />
-  <meta name="theme-color" content="#0a0f14" />
+  <meta name="description" content="Thiwanka Somachandra — C++ Software Engineer in Helsinki. Hive Helsinki (42) graduate building systems software in C/C++ on Linux." />
+  <meta property="og:title" content="Thiwanka Somachandra — C++ Software Engineer" />
+  <meta property="og:description" content="Portfolio for C/C++ systems programming, UNIX/Linux internals, networking, and engineering tooling. Based in Helsinki, Finland." />
+  <meta property="og:image" content="https://thiwankas.fly.dev/assets/profile.jpg" />
+  <meta name="theme-color" content="#282828" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Thiwanka Somachandra",
-    "jobTitle": "Systems Software Developer",
+    "jobTitle": "C++ Software Engineer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Helsinki",
+      "addressRegion": "Uusimaa",
+      "addressCountry": "FI"
+    },
     "email": "mailto:thivankas@outlook.com",
-    "url": "https://github.com/ThiwankaS",
+    "url": "https://thiwankas.fly.dev/",
+    "image": "https://thiwankas.fly.dev/assets/profile.jpg",
     "sameAs": [
       "https://github.com/ThiwankaS",
-      "https://www.linkedin.com/in/so-thiwanka/"
+      "https://www.linkedin.com/in/so-thiwanka/",
+      "https://x.com/So_Thiwanka"
     ],
-    "knowsAbout": ["C", "C++", "Assembly", "UNIX", "Systems Programming", "Graphics", "Networking"]
+    "knowsAbout": ["C", "C++", "Linux", "UNIX", "Systems Programming", "Networking", "Debugging"]
   }
   </script>
 </head>
@@ -37,11 +46,23 @@
         <span class="dot green"></span>
         <button id="modeToggle" class="mode-toggle" aria-label="Toggle theme">◇</button>
       </div>
-      <pre class="path">thiwanka@system-node:~$ ./portfolio --profile</pre>
-      <h1 class="name"><span class="file">THIWANKA SOMACHANDRA</span></h1>
-      <p class="role-badge" aria-label="Job title"><span>Systems Software Developer (C/C++)</span></p>
-      <p class="tagline">Building reliable software close to the system layer: processes, memory, tooling, and performance.</p>
-      <nav class="contact" aria-label="Contacts" id="contactLinks"></nav>
+      <div class="hero-row">
+        <img
+          class="profile-photo"
+          src="assets/profile.jpg"
+          alt="Thiwanka Somachandra"
+          width="112"
+          height="112"
+        />
+        <div class="hero-copy">
+          <pre class="path">thiwanka@helsinki:~$ ./portfolio --profile</pre>
+          <h1 class="name"><span class="file">THIWANKA SOMACHANDRA</span></h1>
+          <p class="role-badge" aria-label="Job title"><span>C++ Software Engineer</span></p>
+          <p class="location">Helsinki, Uusimaa, Finland</p>
+          <p class="tagline">Building reliable software close to the system layer: processes, memory, tooling, and performance.</p>
+          <nav class="contact" aria-label="Contacts" id="contactLinks"></nav>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -49,7 +70,7 @@
     <section class="intro-flow" aria-label="Core narrative">
       <p class="step"><span>01</span> Hello, I am Thiwanka.</p>
       <p class="step"><span>02</span> I design and build systems-level software.</p>
-      <p class="step"><span>03</span> C/C++, UNIX internals, tooling, and performance.</p>
+      <p class="step"><span>03</span> C/C++, Linux, networking, and debugging.</p>
     </section>
 
     <section class="process-band" aria-label="Engineering process">
@@ -72,7 +93,6 @@
       <button id="collapseAll" class="btn" type="button">Collapse all</button>
     </div>
 
-    <!-- Dynamic sections are mounted here by app.js -->
     <section id="dynamicSections" aria-label="Profile sections"></section>
   </main>
 

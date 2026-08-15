@@ -16,7 +16,8 @@
     contact: [
       { label: "thivankas@outlook.com", href: "mailto:thivankas@outlook.com" },
       { label: "GitHub", href: "https://github.com/ThiwankaS", external: true },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/so-thiwanka/", external: true }
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/so-thiwanka/", external: true },
+      { label: "X", href: "https://x.com/So_Thiwanka", external: true }
     ],
     sections: [
       {
@@ -24,17 +25,18 @@
         title: "Profile",
         open: true,
         type: "paragraph",
-        content: "Systems-focused developer in training at Hive Helsinki, specializing in C/C++ and low-level software fundamentals. I build software that is predictable, performant, and production-minded, with attention to process behavior, memory usage, and engineering quality."
+        content: "C++ Software Engineer in Helsinki, Uusimaa, Finland. Hive Helsinki (42) graduate — Junior Developer Level 10. I keep coming back to C/C++ systems work: networking, memory, and making a program behave in a way I can actually explain. I like existing codebases, GDB, and the kind of bug that only shows up when you stop guessing. Open to C++ software engineering roles in Finland while continuing personal systems projects."
       },
       {
         id: "skills",
         title: "Core Technical Skills",
         type: "pills",
         content: [
-          "C", "C++", "Assembly", "POSIX APIs", "UNIX Signals", "Processes & Pipes",
-          "Threads & Synchronization", "Memory Management", "Socket Networking",
-          "Graphics (MiniLibX)", "Bash", "Git", "Linux", "Docker",
-          "Profiling & Debugging", "CI/CD", "wxWidgets"
+          "C++", "C", "Linux", "CMake", "GDB", "Valgrind",
+          "Threads & Synchronization", "Socket Networking", "Memory Management",
+          "POSIX APIs", "UNIX Signals", "Processes & Pipes",
+          "Graphics (MiniLibX)", "Git", "Bash", "Docker",
+          "Profiling & Debugging", "CI/CD"
         ]
       },
       {
@@ -43,49 +45,50 @@
         type: "cards",
         content: [
           {
+            name: "webserv",
+            description: "HTTP/1.1 server in C++. Non-blocking I/O, config parsing, CGI. The project that made network byte order stop being a checkbox.",
+            stack: "C++ • HTTP • Non-blocking I/O • CGI • Systems",
+            repo: "https://github.com/ThiwankaS/webserv"
+          },
+          {
+            name: "CPP",
+            description: "Hive C++ modules 00–09. Classes, templates, inheritance, the canonical form, and sitting with compiler errors until they make sense.",
+            stack: "C++ • OOP • Templates • STL",
+            repo: "https://github.com/ThiwankaS/CPP"
+          },
+          {
+            name: "Philosophers",
+            description: "Dining Philosophers in C. Mutexes, semaphores, and the deadlock I actually hit before the tests went green.",
+            stack: "C • Threads • Mutexes • Semaphores • Concurrency",
+            repo: "https://github.com/ThiwankaS/Philosophers"
+          },
+          {
             name: "small_shader",
-            description: "Explores graphics fundamentals in C++, generating images from scratch and integrating CLI media tooling for rendering workflows.",
+            description: "Graphics from scratch in C++. Images out of math, then CLI tools to look at them.",
             stack: "C++ • Computer Graphics • Rendering • CLI Tooling",
             repo: "https://github.com/ThiwankaS/small_shader"
           },
           {
             name: "Minishell",
-            description: "Custom Unix shell in C featuring command execution, pipelines, redirections, environment handling, and robust process/signal control.",
+            description: "A Unix shell in C: pipelines, redirections, signals, and process control.",
             stack: "C • UNIX • Signals • Parsing • Process Management",
             repo: "https://github.com/ThiwankaS/Minishell"
           },
           {
-            name: "Philosophers",
-            description: "Multithreaded concurrency simulation of the Dining Philosophers problem using mutexes/semaphores with deadlock and race-condition controls.",
-            stack: "C • Threads • Mutexes • Semaphores • Concurrency",
-            repo: "https://github.com/ThiwankaS/Philosophers"
-          },
-          {
             name: "miniRt",
-            description: "Ray tracer in C that renders 3D scenes with geometric primitives, shadows, and lighting models such as Lambert and Phong.",
+            description: "Ray tracer in C. Primitives, shadows, Lambert and Phong. Linear algebra you can see.",
             stack: "C • Ray Tracing • Linear Algebra • Rendering",
             repo: "https://github.com/ThiwankaS/miniRt"
           },
           {
-            name: "movieDbSearch",
-            description: "Full-stack movie discovery platform using TypeScript, Python, MongoDB, and PostgreSQL with external API integration and social features.",
-            stack: "TypeScript • Python • MongoDB • PostgreSQL • APIs",
-            repo: "https://github.com/ThiwankaS/movieDbSearch"
-          },
-          {
-            name: "webserv",
-            description: "HTTP/1.1 web server in C++ with non-blocking I/O, config parsing, and CGI support, inspired by NGINX-like architecture.",
-            stack: "C++ • HTTP • Non-blocking I/O • CGI • Systems",
-            repo: "https://github.com/ThiwankaS/webserv"
-          },
-          {
-            name: "vocabularyApp",
-            description: "Containerized full-stack service with automated delivery workflows, focused on backend reliability and operational discipline.",
-            stack: "Docker • CI/CD • API Design • Deployment Automation"
+            name: "Embedded",
+            description: "C++ on a board with PlatformIO. Same questions as on Linux, smaller machine.",
+            stack: "C++ • PlatformIO • Embedded",
+            repo: "https://github.com/ThiwankaS/Embedded"
           },
           {
             name: "Dictionary",
-            description: "Number-to-word conversion tool with deterministic output across large numeric ranges and edge-case handling.",
+            description: "Number-to-word conversion with deterministic output across large ranges.",
             stack: "C/C++ • Algorithms • File I/O • wxWidgets",
             repo: "https://github.com/ThiwankaS/Dictionary"
           }
@@ -93,14 +96,27 @@
       },
       {
         id: "experience",
-        title: "Professional Experience",
+        title: "Experience",
         type: "timeline",
         content: [
+          {
+            title: "Personal Projects",
+            organization: "Helsinki, Finland",
+            period: "2024 - Present",
+            summary: "C++ on Linux: HTTP/1.1 web server, Hive curriculum projects, concurrency, graphics, and embedded experiments. Daily use of GDB, Valgrind, and CMake."
+          },
+          {
+            title: "Software Engineer (student)",
+            organization: "Hive Helsinki",
+            period: "2024 - 2026",
+            summary: "Full-time 42 / Hive Helsinki curriculum. Peer-to-peer, project-based C/C++, Unix/Linux, networking, and graphics. Completed Junior Developer Level 10.",
+            link: "https://www.hive.fi/"
+          },
           {
             title: "Team Leader (House Keeping)",
             organization: "Siskon Siivous Oy",
             period: "2022 - Present",
-            summary: "Lead operational execution, quality standards, and team coordination in a high-accountability environment."
+            summary: "Part-time role in Finland while completing Hive and searching for a C++ engineering position. Team coordination and quality standards."
           },
           {
             title: "Operations Manager",
@@ -124,15 +140,21 @@
       },
       {
         id: "qualifications",
-        title: "Qualifications & Education",
+        title: "Education & Certifications",
         type: "timeline",
         content: [
           {
             title: "Hive Helsinki",
-            organization: "Peer-to-peer coding program",
-            period: "2024 - Present",
-            summary: "Project-based software engineering with emphasis on systems programming and collaboration.",
+            organization: "Peer-to-peer coding program (42)",
+            period: "2024 - 2026",
+            summary: "Completed. Project-based C/C++, Unix/Linux, networking, graphics. Junior Developer Level 10.",
             link: "https://www.hive.fi/"
+          },
+          {
+            title: "C++ Essentials 1 & 2",
+            organization: "Cisco",
+            period: "Jul 2026",
+            summary: "Cisco Networking Academy certifications covering C++ fundamentals through intermediate language features."
           },
           {
             title: "Full-Stack Open",
@@ -145,7 +167,7 @@
             title: "BSc Studies (Applied Mathematics, Pure Mathematics, Physics)",
             organization: "University of Kelaniya",
             period: "2010 - 2012",
-            summary: "Built strong analytical and mathematical foundations for engineering problem solving.",
+            summary: "Analytical and mathematical foundations for engineering problem solving.",
             link: "https://science.kln.ac.lk/"
           },
           {
@@ -162,7 +184,8 @@
         title: "Achievements",
         type: "list",
         content: [
-          "QT Hackathon - Winning Team (2025)",
+          "Qt Hackathon — winning team (2025)",
+          "42 Cursus — Junior Developer Level 10 (2026)",
           "Spreadsheet Samurai (2025)",
           "Best Kaizen Award (2012)"
         ]

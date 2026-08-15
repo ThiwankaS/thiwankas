@@ -1,27 +1,36 @@
+/* Gruvbox (Neovim) color theme — dark default, light via .light */
 :root {
-  --bg: #090c10;
-  --panel: #111820;
-  --panel-strong: #111820;
-  --text: #d9e6f2;
-  --muted: #8ca2b8;
-  --accent: #57f287;
-  --link: #78cfff;
-  --border: #213343;
-  --pill: #1a2834;
-  --highlight: rgba(87, 242, 135, 0.16);
+  --bg: #1d2021;
+  --panel: #282828;
+  --panel-strong: #3c3836;
+  --text: #ebdbb2;
+  --muted: #a89984;
+  --accent: #b8bb26;
+  --link: #83a598;
+  --border: #504945;
+  --pill: #3c3836;
+  --highlight: rgba(184, 187, 38, 0.18);
+  --orange: #fe8019;
+  --red: #fb4934;
+  --yellow: #fabd2f;
+  --aqua: #8ec07c;
 }
 
 :root.light {
-  --bg: #f3f5f7;
-  --panel: #ffffff;
-  --panel-strong: #ffffff;
-  --text: #111827;
-  --muted: #4b5563;
-  --accent: #0f766e;
-  --link: #0b5cab;
-  --border: #d7dde5;
-  --pill: #f3f6fa;
-  --highlight: rgba(15, 118, 110, 0.1);
+  --bg: #f9f5d7;
+  --panel: #fbf1c7;
+  --panel-strong: #ebdbb2;
+  --text: #3c3836;
+  --muted: #7c6f64;
+  --accent: #79740e;
+  --link: #076678;
+  --border: #d5c4a1;
+  --pill: #ebdbb2;
+  --highlight: rgba(121, 116, 14, 0.14);
+  --orange: #af3a03;
+  --red: #9d0006;
+  --yellow: #b57614;
+  --aqua: #427b58;
 }
 
 * {
@@ -58,7 +67,46 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.hero-row {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+}
+
+.profile-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  background: var(--pill);
+  flex-shrink: 0;
+}
+
+.hero-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.location {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 560px) {
+  .hero-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact {
+    justify-content: center;
+  }
 }
 
 .dot {
@@ -67,9 +115,9 @@ body {
   border-radius: 50%;
 }
 
-.red { background: #ff5f56; }
-.yellow { background: #ffbd2e; }
-.green { background: #27c93f; }
+.red { background: var(--red); }
+.yellow { background: var(--yellow); }
+.green { background: var(--accent); }
 
 .mode-toggle {
   margin-left: auto;
