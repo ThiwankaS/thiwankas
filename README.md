@@ -1,22 +1,15 @@
-# Thiwanka Somachandra
-
-C++ Software Engineer in Helsinki. Hive Helsinki (42).
-
 I keep coming back to C++ on Linux: networking, memory, and the kind of bug that only shows up when you stop guessing.
 
-**Open to C++ Software Engineer roles in Finland.**
+I write the code myself. I do not ship what I have not read.
 
-## Selected work
+Right now I am sitting with [webserv](https://github.com/ThiwankaS/webserv) — how the accept loop actually wakes up, and what broke the first time I used blocking I/O.
 
-- **[webserv](https://github.com/ThiwankaS/webserv)** — HTTP/1.1 server in C++. Non-blocking I/O, config, CGI.
-- **[CPP](https://github.com/ThiwankaS/CPP)** — Hive C++ modules 00–09.
-- **[Philosophers](https://github.com/ThiwankaS/Philosophers)** — threads, mutexes, the deadlock I actually hit.
-- **[Embedded](https://github.com/ThiwankaS/Embedded)** — C++ on a board with PlatformIO.
-- **[small_shader](https://github.com/ThiwankaS/small_shader)** — graphics from scratch in C++.
-- **[Minishell](https://github.com/ThiwankaS/Minishell)** — Unix shell in C: processes, pipes, signals.
+If we talk, I would rather walk a session than list tools:
 
-## Stack
+- the deadlock I actually hit in [Philosophers](https://github.com/ThiwankaS/Philosophers)
+- a GDB / Valgrind pass on someone else's memory
+- C++ on a board with [PlatformIO](https://github.com/ThiwankaS/Embedded)
 
-C++ · C · Linux · CMake · sockets · threads · GDB · Valgrind · Git
+Open to C++ Software Engineer roles in Finland.
 
-[Website](https://thiwankas.fly.dev/) · [LinkedIn](https://www.linkedin.com/in/so-thiwanka/)
+[thiwankas.fly.dev](https://thiwankas.fly.dev/) · [LinkedIn](https://www.linkedin.com/in/so-thiwanka/)
