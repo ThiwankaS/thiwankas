@@ -1,0 +1,54 @@
+/* =============================================================================
+   THEME — edit colors here
+   Gruvbox (Neovim). Dark default; light via :root.light
+   ============================================================================= */
+
+:root {
+  /* Surfaces */
+  --bg: #1d2021;
+  --panel: #282828;
+  --panel-strong: #3c3836;
+  --border: #504945;
+  --pill: #3c3836;
+
+  /* Text */
+  --text: #ebdbb2;
+  --muted: #a89984;
+
+  /* Accents */
+  --accent: #b8bb26;
+  --title: #fabd2f;
+  --link: #fe8019;
+  --highlight: rgba(184, 187, 38, 0.18);
+
+  /* Status / extras */
+  --orange: #fe8019;
+  --red: #fb4934;
+  --yellow: #fabd2f;
+  --aqua: #8ec07c;
+  --cta-bg: #ebdbb2;
+  --cta-text: #1d2021;
+}
+
+:root.light {
+  --bg: #f9f5d7;
+  --panel: #fbf1c7;
+  --panel-strong: #ebdbb2;
+  --border: #d5c4a1;
+  --pill: #ebdbb2;
+
+  --text: #3c3836;
+  --muted: #7c6f64;
+
+  --accent: #79740e;
+  --title: #b57614;
+  --link: #af3a03;
+  --highlight: rgba(121, 116, 14, 0.14);
+
+  --orange: #af3a03;
+  --red: #9d0006;
+  --yellow: #b57614;
+  --aqua: #427b58;
+  --cta-bg: #3c3836;
+  --cta-text: #fbf1c7;
+}

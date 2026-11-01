@@ -1,0 +1,28 @@
+/* =============================================================================
+   FOOTER + PRINT
+   ============================================================================= */
+
+.site-footer {
+  text-align: left;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 1.2rem;
+  font-size: 0.9rem;
+}
+
+@media print {
+  :root, :root.light {
+    --bg: #fff;
+    --panel: #fff;
+    --text: #000;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .mode-toggle,
+  .site-footer {
+    display: none !important;
+  }
+}

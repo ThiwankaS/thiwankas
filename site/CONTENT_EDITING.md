@@ -1,57 +1,41 @@
 # Content Editing Guide
 
-This website is now data-driven so updates are easy.
+This site is a short practice story + tools grid. Career history and project lists stay on LinkedIn / GitHub so you don’t maintain them twice.
 
-## Where to edit
+| What you want to change | File | Where |
+|---|---|---|
+| Story / about copy | `site/index.html` | `The practice` section |
+| Hero opening line | `site/index.html` | `.bio` in the hero |
+| Socials + tool icons | `site/app.js` | `PROFILE.socials` / `PROFILE.stack` |
+| Colors | `site/css/theme.css` | `:root` / `:root.light` |
+| Layout CSS | `site/css/*.css` | imported by `styles.css` |
+| Tech icons | `site/assets/icons/` | `{name}-light.svg` / `{name}-dark.svg` |
+| Photo | `site/assets/profile.jpg` | replace the file |
+| Resume PDF | `site/Thiwankas.pdf` | replace the file |
 
-Edit the `PROFILE` object in `site/app.js`.
+## Page flow
 
-## What to edit
+1. Top bar + hero (identity, opening line, Resume / socials)
+2. **The practice** — who you are, how layers connect, what keeps you going
+3. **Tools & environment** — compact icon grid
+4. Footer
 
-- `PROFILE.contact`: top contact links (email, GitHub, LinkedIn)
-- `PROFILE.sections`: all main sections in the page
+## Tools grid
 
-Each section has:
-
-- `id`: unique key (used for expand/collapse memory)
-- `title`: section heading
-- `type`: one of `paragraph`, `pills`, `cards`, `timeline`, `list`
-- `content`: section data (format depends on `type`)
-- `open` (optional): set `true` to keep section open by default
-
-## Frequently updated sections
-
-- **Experience**: section with `id: "experience"` and `type: "timeline"`
-- **Qualifications**: section with `id: "qualifications"` and `type: "timeline"`
-- **Achievements**: section with `id: "achievements"` and `type: "list"`
-
-## Timeline item format
-
-Use this object shape inside a timeline section:
+In `app.js` → `PROFILE.stack`:
 
 ```js
-{
-  title: "Role or Qualification",
-  organization: "Company or Institution",
-  period: "2024 - Present",
-  summary: "One sentence summary",
-  link: "https://example.com" // optional
-}
+{ icon: "python", label: "Python" }
 ```
 
-## Local preview
+Needs matching files: `assets/icons/python-light.svg` and `python-dark.svg`.
 
-From repository root:
+## Local preview
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Then open:
+Open `http://localhost:8080/site/`
 
-- `http://localhost:8080/site/`
-
-## Notes
-
-- Theme selection and open/closed section state are saved in browser `localStorage`.
-- If content changes do not appear, hard refresh your browser once.
+Hard-refresh after edits if the browser caches CSS/JS.

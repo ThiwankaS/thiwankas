@@ -1,208 +1,98 @@
 (function () {
   const root = document.documentElement;
   const THEME_KEY = "prefers-light";
-  const OPEN_KEY = "accordion-open-ids";
 
-  /*
-    Central profile data.
-    ------------------------------------------
-    Update this object when you need to edit:
-      - qualifications (education/certifications)
-      - experiences (work timeline)
-      - achievements (awards/results)
-    The UI below is generated from this data.
-  */
+  /* ===========================================================================
+     PROFILE DATA — edit socials + tool icons here
+     Story copy lives in index.html (The practice section)
+     Experience / projects: keep LinkedIn + GitHub updated instead
+     =========================================================================== */
   const PROFILE = {
-    contact: [
-      { label: "thivankas@outlook.com", href: "mailto:thivankas@outlook.com" },
-      { label: "GitHub", href: "https://github.com/ThiwankaS", external: true },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/so-thiwanka/", external: true },
-      { label: "X", href: "https://x.com/So_Thiwanka", external: true }
-    ],
-    sections: [
+    socials: [
       {
-        id: "about",
-        title: "Profile",
-        open: true,
-        type: "paragraph",
-        content: "C++ Software Engineer in Helsinki, Uusimaa, Finland. Hive Helsinki (42) graduate — Junior Developer Level 10. I keep coming back to C/C++ systems work: networking, memory, and making a program behave in a way I can actually explain. I like existing codebases, GDB, and the kind of bug that only shows up when you stop guessing. Open to C++ software engineering roles in Finland while continuing personal systems projects."
+        id: "github",
+        label: "GitHub",
+        href: "https://github.com/ThiwankaS",
+        external: true,
+        svg: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.05A9.3 9.3 0 0 1 12 6.84c.85.01 1.71.12 2.51.35 1.9-1.32 2.74-1.05 2.74-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.04 10.04 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>'
       },
       {
-        id: "skills",
-        title: "Core Technical Skills",
-        type: "pills",
-        content: [
-          "C++", "C", "Linux", "CMake", "GDB", "Valgrind",
-          "Threads & Synchronization", "Socket Networking", "Memory Management",
-          "POSIX APIs", "UNIX Signals", "Processes & Pipes",
-          "Graphics (MiniLibX)", "Git", "Bash", "Docker",
-          "Profiling & Debugging", "CI/CD"
-        ]
+        id: "linkedin",
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/so-thiwanka/",
+        external: true,
+        svg: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M6.94 8.5H3.75V20h3.19V8.5zM5.34 7.08a1.85 1.85 0 1 0 0-3.7 1.85 1.85 0 0 0 0 3.7zM20.25 20h-3.18v-5.6c0-1.34-.02-3.05-1.86-3.05-1.86 0-2.15 1.45-2.15 2.95V20H9.88V8.5h3.05v1.57h.04c.43-.8 1.46-1.65 3.01-1.65 3.22 0 3.81 2.12 3.81 4.88V20z"/></svg>'
       },
       {
-        id: "projects",
-        title: "Selected Engineering Projects",
-        type: "cards",
-        content: [
-          {
-            name: "webserv",
-            description: "HTTP/1.1 server in C++. Non-blocking I/O, config parsing, CGI. The project that made network byte order stop being a checkbox.",
-            stack: "C++ • HTTP • Non-blocking I/O • CGI • Systems",
-            repo: "https://github.com/ThiwankaS/webserv"
-          },
-          {
-            name: "CPP",
-            description: "Hive C++ modules 00–09. Classes, templates, inheritance, the canonical form, and sitting with compiler errors until they make sense.",
-            stack: "C++ • OOP • Templates • STL",
-            repo: "https://github.com/ThiwankaS/CPP"
-          },
-          {
-            name: "Philosophers",
-            description: "Dining Philosophers in C. Mutexes, semaphores, and the deadlock I actually hit before the tests went green.",
-            stack: "C • Threads • Mutexes • Semaphores • Concurrency",
-            repo: "https://github.com/ThiwankaS/Philosophers"
-          },
-          {
-            name: "small_shader",
-            description: "Graphics from scratch in C++. Images out of math, then CLI tools to look at them.",
-            stack: "C++ • Computer Graphics • Rendering • CLI Tooling",
-            repo: "https://github.com/ThiwankaS/small_shader"
-          },
-          {
-            name: "Minishell",
-            description: "A Unix shell in C: pipelines, redirections, signals, and process control.",
-            stack: "C • UNIX • Signals • Parsing • Process Management",
-            repo: "https://github.com/ThiwankaS/Minishell"
-          },
-          {
-            name: "miniRt",
-            description: "Ray tracer in C. Primitives, shadows, Lambert and Phong. Linear algebra you can see.",
-            stack: "C • Ray Tracing • Linear Algebra • Rendering",
-            repo: "https://github.com/ThiwankaS/miniRt"
-          },
-          {
-            name: "Embedded",
-            description: "C++ on a board with PlatformIO. Same questions as on Linux, smaller machine.",
-            stack: "C++ • PlatformIO • Embedded",
-            repo: "https://github.com/ThiwankaS/Embedded"
-          },
-          {
-            name: "Dictionary",
-            description: "Number-to-word conversion with deterministic output across large ranges.",
-            stack: "C/C++ • Algorithms • File I/O • wxWidgets",
-            repo: "https://github.com/ThiwankaS/Dictionary"
-          }
-        ]
+        id: "x",
+        label: "X",
+        href: "https://x.com/So_Thiwanka",
+        external: true,
+        svg: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-6.78 7.75L23 22h-6.55l-5.13-6.7L5.4 22H2.3l7.25-8.29L1 2h6.7l4.63 6.13L18.9 2zm-1.15 18h1.82L6.37 3.9H4.42L17.75 20z"/></svg>'
       },
       {
-        id: "experience",
-        title: "Experience",
-        type: "timeline",
-        content: [
-          {
-            title: "Personal Projects",
-            organization: "Helsinki, Finland",
-            period: "2024 - Present",
-            summary: "C++ on Linux: HTTP/1.1 web server, Hive curriculum projects, concurrency, graphics, and embedded experiments. Daily use of GDB, Valgrind, and CMake."
-          },
-          {
-            title: "Software Engineer (student)",
-            organization: "Hive Helsinki",
-            period: "2024 - 2026",
-            summary: "Full-time 42 / Hive Helsinki curriculum. Peer-to-peer, project-based C/C++, Unix/Linux, networking, and graphics. Completed Junior Developer Level 10.",
-            link: "https://www.hive.fi/"
-          },
-          {
-            title: "Team Leader (House Keeping)",
-            organization: "Siskon Siivous Oy",
-            period: "2022 - Present",
-            summary: "Part-time role in Finland while completing Hive and searching for a C++ engineering position. Team coordination and quality standards."
-          },
-          {
-            title: "Operations Manager",
-            organization: "Noble Vision Institute (Pvt) Ltd",
-            period: "2020 - 2022",
-            summary: "Managed service operations and improved process reliability through structured workflows."
-          },
-          {
-            title: "Entrepreneur",
-            organization: "Somasiri Rice Merchandisers (Pvt) Ltd",
-            period: "2016 - 2020",
-            summary: "Owned end-to-end business operations, logistics planning, and customer relationship management."
-          },
-          {
-            title: "Executive Human Resources and Administration",
-            organization: "MAS Active Trading (Pvt) Ltd",
-            period: "2012 - 2016",
-            summary: "Supported organizational process execution, policy compliance, and workforce administration."
-          }
-        ]
-      },
-      {
-        id: "qualifications",
-        title: "Education & Certifications",
-        type: "timeline",
-        content: [
-          {
-            title: "Hive Helsinki",
-            organization: "Peer-to-peer coding program (42)",
-            period: "2024 - 2026",
-            summary: "Completed. Project-based C/C++, Unix/Linux, networking, graphics. Junior Developer Level 10.",
-            link: "https://www.hive.fi/"
-          },
-          {
-            title: "C++ Essentials 1 & 2",
-            organization: "Cisco",
-            period: "Jul 2026",
-            summary: "Cisco Networking Academy certifications covering C++ fundamentals through intermediate language features."
-          },
-          {
-            title: "Full-Stack Open",
-            organization: "University of Helsinki",
-            period: "2023 - 2024",
-            summary: "Modern full-stack web development, testing, APIs, and deployment practices.",
-            link: "https://fullstackopen.com/en/"
-          },
-          {
-            title: "BSc Studies (Applied Mathematics, Pure Mathematics, Physics)",
-            organization: "University of Kelaniya",
-            period: "2010 - 2012",
-            summary: "Analytical and mathematical foundations for engineering problem solving.",
-            link: "https://science.kln.ac.lk/"
-          },
-          {
-            title: "Diploma in Computer System Designing",
-            organization: "NIBM",
-            period: "2008 - 2010",
-            summary: "Core computing fundamentals, software design principles, and practical systems knowledge.",
-            link: "https://www.nibm.lk/course/diploma-in-computer-system-design-full-time"
-          }
-        ]
-      },
-      {
-        id: "achievements",
-        title: "Achievements",
-        type: "list",
-        content: [
-          "Qt Hackathon — winning team (2025)",
-          "42 Cursus — Junior Developer Level 10 (2026)",
-          "Spreadsheet Samurai (2025)",
-          "Best Kaizen Award (2012)"
-        ]
+        id: "email",
+        label: "Email",
+        href: "mailto:thivankas@outlook.com",
+        svg: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>'
       }
+    ],
+
+    stack: [
+      { icon: "cpp", label: "C++" },
+      { icon: "c", label: "C" },
+      { icon: "python", label: "Python" },
+      { icon: "javascript", label: "JavaScript" },
+      { icon: "qt", label: "Qt" },
+      { icon: "sqlite", label: "SQLite" },
+      { icon: "linux", label: "Linux" },
+      { icon: "archlinux", label: "Arch" },
+      { icon: "debian", label: "Debian" },
+      { icon: "macos", label: "macOS" },
+      { icon: "cmake", label: "CMake" },
+      { icon: "gdb", label: "GDB" },
+      { icon: "valgrind", label: "Valgrind" },
+      { icon: "sockets", label: "Sockets" },
+      { icon: "threads", label: "Threads" },
+      { icon: "git", label: "Git" },
+      { icon: "bash", label: "Bash" },
+      { icon: "neovim", label: "Neovim" },
+      { icon: "vscode", label: "VS Code" },
+      { icon: "cursor", label: "Cursor" },
+      { icon: "gemini", label: "Gemini" }
     ]
   };
 
-  // Theme toggle and persistence.
+  /* ===========================================================================
+     THEME TOGGLE
+     =========================================================================== */
   const modeButton = document.getElementById("modeToggle");
+  const ICON_MOON =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21 14.3A9 9 0 1 1 9.7 3a7 7 0 1 0 11.3 11.3z"/></svg>';
+  const ICON_SUN =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+
+  function stackVariant() {
+    return root.classList.contains("light") ? "light" : "dark";
+  }
+
+  function refreshStackIcons() {
+    const variant = stackVariant();
+    document.querySelectorAll("#stackGrid img.stack-icon").forEach((img) => {
+      const name = img.getAttribute("data-icon");
+      if (name) img.src = `assets/icons/${name}-${variant}.svg`;
+    });
+  }
+
   function applyTheme(isLight) {
     if (isLight) {
       root.classList.add("light");
-      modeButton.textContent = "☀️";
+      modeButton.innerHTML = ICON_SUN;
     } else {
       root.classList.remove("light");
-      modeButton.textContent = "🌙";
+      modeButton.innerHTML = ICON_MOON;
     }
+    refreshStackIcons();
   }
 
   const savedTheme = localStorage.getItem(THEME_KEY);
@@ -217,120 +107,48 @@
     localStorage.setItem(THEME_KEY, now ? "1" : "0");
   });
 
-  // Render contact links from profile data.
-  function renderContacts() {
-    const wrapper = document.getElementById("contactLinks");
-    wrapper.innerHTML = PROFILE.contact
-      .map((entry, index) => {
-        const attrs = entry.external ? ' target="_blank" rel="noopener"' : "";
-        const separator = index < PROFILE.contact.length - 1 ? "<span>│</span>" : "";
-        return `<a href="${entry.href}"${attrs}>${entry.label}</a>${separator}`;
+  /* ===========================================================================
+     RENDERERS
+     =========================================================================== */
+  function renderSocials() {
+    const nav = document.getElementById("socialLinks");
+    nav.innerHTML = PROFILE.socials
+      .map((item) => {
+        const attrs = item.external ? ' target="_blank" rel="me noopener"' : "";
+        return `<a href="${item.href}" aria-label="${item.label}"${attrs}>${item.svg}</a>`;
       })
       .join("");
   }
 
-  function createTimelineHTML(items) {
-    return `
-      <div class="timeline">
-        ${items.map((item) => {
-          const heading = item.link
-            ? `<a class="timeline-title-link" href="${item.link}" target="_blank" rel="noopener">${item.title}</a>`
-            : `<span class="timeline-title-text">${item.title}</span>`;
-          return `
-            <article class="timeline-item">
-              <h3 class="timeline-title">${heading}</h3>
-              <p class="timeline-meta">${item.organization} • ${item.period}</p>
-              <p class="timeline-desc">${item.summary}</p>
-            </article>
-          `;
-        }).join("")}
-      </div>
-    `;
-  }
-
-  function createSectionBody(section) {
-    if (section.type === "paragraph") {
-      return `<p>${section.content}</p>`;
-    }
-    if (section.type === "pills") {
-      return `<ul class="pill-list">${section.content.map((skill) => `<li>${skill}</li>`).join("")}</ul>`;
-    }
-    if (section.type === "list") {
-      return `<ul>${section.content.map((line) => `<li>${line}</li>`).join("")}</ul>`;
-    }
-    if (section.type === "timeline") {
-      return createTimelineHTML(section.content);
-    }
-    if (section.type === "cards") {
-      return `
-        <div class="cards">
-          ${section.content.map((project) => `
-            <article class="card">
-              <h3 class="subhead">${project.name}</h3>
-              <p>${project.description}</p>
-              <p class="meta">${project.stack}</p>
-              ${project.repo ? `<p class="meta"><a href="${project.repo}" target="_blank" rel="noopener">Repository</a></p>` : ""}
-            </article>
-          `).join("")}
-        </div>
-      `;
-    }
-    return "<p>Section type is not configured.</p>";
-  }
-
-  function renderSections() {
-    const mount = document.getElementById("dynamicSections");
-    mount.innerHTML = PROFILE.sections
-      .map((section) => `
-        <details class="block" id="${section.id}" ${section.open ? "open" : ""}>
-          <summary><span class="sum-title">${section.title}</span></summary>
-          <div class="content">${createSectionBody(section)}</div>
-        </details>
-      `)
+  function renderStack() {
+    const grid = document.getElementById("stackGrid");
+    const variant = stackVariant();
+    grid.innerHTML = PROFILE.stack
+      .map(
+        (item) => `
+        <li class="stack-item">
+          <span class="stack-mark">
+            <img
+              class="stack-icon"
+              src="assets/icons/${item.icon}-${variant}.svg"
+              alt=""
+              width="28"
+              height="28"
+              loading="lazy"
+              data-icon="${item.icon}"
+            />
+          </span>
+          <span class="stack-label">${item.label}</span>
+        </li>
+      `
+      )
       .join("");
   }
 
-  // Accordion state persistence.
-  const details = () => Array.from(document.querySelectorAll("details.block"));
-  function saveOpen() {
-    const openIds = details().filter((d) => d.open).map((d) => d.id);
-    localStorage.setItem(OPEN_KEY, JSON.stringify(openIds));
-  }
-
-  function restoreOpen() {
-    const raw = localStorage.getItem(OPEN_KEY);
-    if (!raw) return;
-    const openIdSet = new Set(JSON.parse(raw));
-    details().forEach((item) => {
-      item.open = openIdSet.has(item.id);
-    });
-  }
-
-  function wireAccordionEvents() {
-    details().forEach((item) => item.addEventListener("toggle", saveOpen));
-  }
-
-  function wireSectionControls() {
-    document.getElementById("expandAll").onclick = () => {
-      details().forEach((item) => {
-        item.open = true;
-      });
-      saveOpen();
-    };
-    document.getElementById("collapseAll").onclick = () => {
-      details().forEach((item) => {
-        item.open = false;
-      });
-      saveOpen();
-    };
-  }
-
-  // Footer year.
+  /* ===========================================================================
+     BOOT
+     =========================================================================== */
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  renderContacts();
-  renderSections();
-  restoreOpen();
-  wireAccordionEvents();
-  wireSectionControls();
+  renderSocials();
+  renderStack();
 })();

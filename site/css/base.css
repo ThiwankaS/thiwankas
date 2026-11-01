@@ -1,0 +1,35 @@
+/* =============================================================================
+   BASE / LAYOUT
+   ============================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
+}
+
+.page.container {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 2.5rem;
+  display: grid;
+  gap: 1.75rem;
+  text-align: left;
+}
+
+.section-title {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}

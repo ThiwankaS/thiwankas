@@ -1,103 +1,258 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- =========================================================================
+       META / SEO
+       ========================================================================= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thiwanka Somachandra — C++ Software Engineer</title>
-  <link rel="stylesheet" href="styles.css?v=20260815-1" />
-  <script defer src="app.js?v=20260815-1"></script>
+  <title>Thiwanka Somachandra — Software Engineer</title>
+  <link rel="stylesheet" href="styles.css?v=20261101-12" />
+  <script defer src="app.js?v=20261101-12"></script>
 
-  <meta name="description" content="Thiwanka Somachandra — C++ Software Engineer in Helsinki. Hive Helsinki (42) graduate building systems software in C/C++ on Linux." />
-  <meta property="og:title" content="Thiwanka Somachandra — C++ Software Engineer" />
-  <meta property="og:description" content="Portfolio for C/C++ systems programming, UNIX/Linux internals, networking, and engineering tooling. Based in Helsinki, Finland." />
+  <link rel="canonical" href="https://thiwankas.fly.dev/" />
+  <meta name="description" content="Thiwanka Somachandra — Software Engineer in Helsinki. Hands-on practice from systems C/C++ on Linux into Python, Qt, embedded, and edge ML." />
+  <meta name="author" content="Thiwanka Somachandra" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Thiwanka Somachandra — Software Engineer" />
+  <meta property="og:description" content="Systems craft to devices and usable software — continuous hands-on experiments in Helsinki." />
+  <meta property="og:url" content="https://thiwankas.fly.dev/" />
   <meta property="og:image" content="https://thiwankas.fly.dev/assets/profile.jpg" />
+  <meta property="profile:first_name" content="Thiwanka" />
+  <meta property="profile:last_name" content="Somachandra" />
   <meta name="theme-color" content="#282828" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Thiwanka Somachandra",
-    "jobTitle": "C++ Software Engineer",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Helsinki",
-      "addressRegion": "Uusimaa",
-      "addressCountry": "FI"
-    },
-    "email": "mailto:thivankas@outlook.com",
-    "url": "https://thiwankas.fly.dev/",
-    "image": "https://thiwankas.fly.dev/assets/profile.jpg",
-    "sameAs": [
-      "https://github.com/ThiwankaS",
-      "https://www.linkedin.com/in/so-thiwanka/",
-      "https://x.com/So_Thiwanka"
-    ],
-    "knowsAbout": ["C", "C++", "Linux", "UNIX", "Systems Programming", "Networking", "Debugging"]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://thiwankas.fly.dev/#website",
+        "url": "https://thiwankas.fly.dev/",
+        "name": "Thiwanka Somachandra",
+        "description": "Personal site of Thiwanka Somachandra — systems software practice in Helsinki.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://thiwankas.fly.dev/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://thiwankas.fly.dev/#person",
+        "name": "Thiwanka Somachandra",
+        "givenName": "Thiwanka",
+        "familyName": "Somachandra",
+        "additionalName": "Thivanka",
+        "alternateName": [
+          "Thivanka Somachandra",
+          "ThiwankaS",
+          "thiwankas",
+          "thiwanaks",
+          "thivankas",
+          "so-thiwanka",
+          "so_thiwanka",
+          "So_Thiwanka",
+          "so_thivanka",
+          "Thivanak Somachandra"
+        ],
+        "jobTitle": "Software Engineer",
+        "description": "Software engineer in Helsinki. Hive Helsinki (42) graduate — systems C/C++ on Linux, with ongoing practice in Python, Qt, embedded, and edge ML.",
+        "url": "https://thiwankas.fly.dev/",
+        "image": "https://thiwankas.fly.dev/assets/profile.jpg",
+        "email": "mailto:thivankas@outlook.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Helsinki",
+          "addressRegion": "Uusimaa",
+          "addressCountry": "FI"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Hive Helsinki",
+          "url": "https://www.hive.fi/"
+        },
+        "knowsAbout": [
+          "C", "C++", "Python", "Qt", "Linux", "UNIX",
+          "Systems Programming", "Networking", "Debugging",
+          "Embedded", "TinyML"
+        ],
+        "sameAs": [
+          "https://github.com/ThiwankaS",
+          "https://www.linkedin.com/in/so-thiwanka/",
+          "https://x.com/So_Thiwanka"
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header class="site-header container">
-    <div class="terminal-window">
-      <div class="term-bar">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-        <button id="modeToggle" class="mode-toggle" aria-label="Toggle theme">◇</button>
+  <div class="page container">
+
+    <!-- =====================================================================
+         TOP BAR — brand + dots + theme toggle
+         ===================================================================== -->
+    <header class="topbar">
+      <a class="brand" href="/">THIWANKA</a>
+      <div class="topbar-right">
+        <span class="window-dots" aria-hidden="true">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </span>
+        <button id="modeToggle" class="mode-toggle" type="button" aria-label="Toggle theme">
+          <!-- icon swapped by app.js -->
+        </button>
       </div>
-      <div class="hero-row">
-        <img
-          class="profile-photo"
-          src="assets/profile.jpg"
-          alt="Thiwanka Somachandra"
-          width="112"
-          height="112"
-        />
-        <div class="hero-copy">
-          <pre class="path">thiwanka@helsinki:~$ ./portfolio --profile</pre>
-          <h1 class="name"><span class="file">THIWANKA SOMACHANDRA</span></h1>
-          <p class="role-badge" aria-label="Job title"><span>C++ Software Engineer</span></p>
+    </header>
+
+    <!-- =====================================================================
+         HERO — identity, opening line, resume + socials
+         ===================================================================== -->
+    <section class="hero" aria-label="Introduction">
+      <div class="identity">
+        <div class="photo-wrap">
+          <img
+            class="profile-photo"
+            src="assets/profile.jpg"
+            alt="Thiwanka Somachandra"
+            width="88"
+            height="88"
+          />
+        </div>
+        <div class="identity-text">
+          <h1 class="name">Thiwanka Somachandra</h1>
+          <p class="role">Software Engineer</p>
           <p class="location">Helsinki, Uusimaa, Finland</p>
-          <p class="tagline">Building reliable software close to the system layer: processes, memory, tooling, and performance.</p>
-          <nav class="contact" aria-label="Contacts" id="contactLinks"></nav>
         </div>
       </div>
-    </div>
-  </header>
 
-  <main class="container">
-    <section class="intro-flow" aria-label="Core narrative">
-      <p class="step"><span>01</span> Hello, I am Thiwanka.</p>
-      <p class="step"><span>02</span> I design and build systems-level software.</p>
-      <p class="step"><span>03</span> C/C++, Linux, networking, and debugging.</p>
+      <div class="bio">
+        <p>AI has solved the syntax, but not the semantics.</p>
+        <p>
+          I stay close to how software actually behaves — on Linux, on the board,
+          and in the tools I use every day.
+        </p>
+      </div>
+
+      <div class="actions">
+        <a class="btn-resume" href="Thiwankas.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <path d="M14 2v6h6" />
+            <path d="M8 13h8M8 17h8M8 9h2" />
+          </svg>
+          Resume
+        </a>
+        <nav class="socials" aria-label="Social links" id="socialLinks"></nav>
+      </div>
     </section>
 
-    <section class="process-band" aria-label="Engineering process">
-      <article>
-        <h2>Problem Analysis</h2>
-        <p>Understand runtime constraints, architecture boundaries, and failure modes before coding.</p>
-      </article>
-      <article>
-        <h2>Low-Level Implementation</h2>
-        <p>Build deterministic modules in C/C++ with focus on memory safety, correctness, and maintainability.</p>
-      </article>
-      <article>
-        <h2>Validation & Delivery</h2>
-        <p>Test edge cases, profile hot paths, and package solutions ready for real-world environments.</p>
-      </article>
+    <!-- =====================================================================
+         PRACTICE STORY — continuous hands-on path (edit copy here)
+         ===================================================================== -->
+    <section class="story" aria-labelledby="story-heading">
+      <h2 id="story-heading" class="section-title">The practice</h2>
+
+      <ol class="story-lead" aria-label="Practice path">
+        <li>Systems craft</li>
+        <li>Tools &amp; interfaces</li>
+        <li>Embedded devices</li>
+        <li>Edge intelligence</li>
+        <li>Usable tools</li>
+      </ol>
+      <p class="story-lead-tag">One continuous loop.</p>
+
+      <div class="story-block">
+        <h3>Who I am</h3>
+        <p>
+          Hive&nbsp;Helsinki (42) graduate based in Helsinki.
+          I treat engineering as an ongoing experiment: write, break, measure, fix, and repeat.
+        </p>
+        <p>
+          C/C++ on Linux is home base. From there, I stretch into Python, Qt, firmware,
+          and TinyML — not as a checklist, but as disciplines I return to with hands on the keyboard.
+        </p>
+      </div>
+
+      <div class="story-block">
+        <h3>How the pieces connect</h3>
+        <ul class="story-links">
+          <li>
+            <span class="story-label">Systems first</span>
+            <span class="story-desc">
+              Processes, memory, networking, concurrency: understand the machine before decorating it.
+            </span>
+          </li>
+          <li>
+            <span class="story-label">Tooling &amp; interfaces</span>
+            <span class="story-desc">
+              Python for glue and prototyping; Qt when software needs a clean, reliable face.
+            </span>
+          </li>
+          <li>
+            <span class="story-label">Devices</span>
+            <span class="story-desc">
+              Firmware and board-level work, where constraints make every byte and clock cycle count.
+            </span>
+          </li>
+          <li>
+            <span class="story-label">Edge intelligence</span>
+            <span class="story-desc">
+              Pulling ML out of notebooks and squeezing it into real hardware limits.
+            </span>
+          </li>
+          <li>
+            <span class="story-label">Usable software</span>
+            <span class="story-desc">
+              Turning those deeper layers into tools people can actually run, touch, and use.
+            </span>
+          </li>
+        </ul>
+        <p class="story-note">
+          Each loop feeds the next: a systems bug teaches me about the board;
+          a UI forces clearer APIs; an on-device constraint reshapes both model and code.
+        </p>
+      </div>
+
+      <div class="story-block">
+        <h3>What keeps me going</h3>
+        <p>
+          I’m not optimising for a title. I’m optimising for depth — staying curious,
+          shipping rough-then-refined iterations, and building a practice I can trust.
+        </p>
+        <p>The craft is the point.</p>
+      </div>
+
+      <ul class="story-trail">
+        <li>
+          <a href="https://github.com/ThiwankaS" target="_blank" rel="me noopener">GitHub</a>
+          <span>for code &amp; experiments</span>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/so-thiwanka/" target="_blank" rel="me noopener">LinkedIn</a>
+          <span>for the trajectory</span>
+        </li>
+        <li>
+          <a href="Thiwankas.pdf" target="_blank" rel="noopener">Resume</a>
+          <span>for the snapshot</span>
+        </li>
+      </ul>
     </section>
 
-    <div class="controls">
-      <button id="expandAll" class="btn" type="button">Expand all</button>
-      <button id="collapseAll" class="btn" type="button">Collapse all</button>
-    </div>
+    <!-- =====================================================================
+         TOOLS & ENVIRONMENT — icon grid from PROFILE.stack in app.js
+         ===================================================================== -->
+    <section class="stack-section" aria-labelledby="stack-heading">
+      <h2 id="stack-heading" class="section-title">Tools &amp; environment</h2>
+      <ul class="stack-grid" id="stackGrid"></ul>
+    </section>
 
-    <section id="dynamicSections" aria-label="Profile sections"></section>
-  </main>
-
-  <footer class="container site-footer">
-    © <span id="year"></span> Thiwanka Somachandra
-  </footer>
+    <!-- =====================================================================
+         FOOTER
+         ===================================================================== -->
+    <footer class="site-footer">
+      © <span id="year"></span> Thiwanka Somachandra
+    </footer>
+  </div>
 </body>
 </html>
