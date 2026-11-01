@@ -5,24 +5,28 @@
 .story {
   display: grid;
   gap: 1.15rem;
+  width: 100%;
 }
 
 .section-title {
   text-wrap: balance;
 }
 
-/* Path as wrap-friendly steps (no mid-phrase arrow breaks) */
+/* Path as wrap-friendly steps — full container width */
 .story-lead {
   list-style: none;
   margin: 0;
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.55rem 0.7rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem 0;
+  border: 1px solid var(--border);
   border-left: 2px solid var(--accent);
   background: var(--panel);
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
 }
 
 .story-lead li {
@@ -68,7 +72,7 @@
   font-size: 0.92rem;
   line-height: 1.7;
   text-wrap: pretty;
-  max-width: 62ch;
+  max-width: none;
 }
 
 /* Label on its own line → description wraps cleanly below */
@@ -109,7 +113,7 @@
   font-size: 0.86rem;
   line-height: 1.6;
   text-wrap: pretty;
-  max-width: 62ch;
+  max-width: none;
 }
 
 /* Trail wraps as whole items, not mid-phrase */
