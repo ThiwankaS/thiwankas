@@ -17,10 +17,12 @@ Each icon has two files:
 
 ## In the live stack now
 
-Languages/tools: `cpp`, `c`, `python`, `javascript`, `qt`, `sqlite`  
-OS: `linux`, `archlinux`, `debian`, `macos`  
-Systems: `cmake`, `gdb`, `valgrind`, `sockets`, `threads`, `git`, `bash`  
+Languages/tools: `cpp`, `c`, `python`, `javascript`, `react`, `nodejs`, `qt`, `sqlite`  
+OS: `archlinux`, `debian`  
+Systems: `cmake`, `gdb`, `valgrind`, `sockets`, `threads`, `rtos`, `embedded`, `tinyml`, `git`, `bash`  
 Editors/AI: `neovim`, `vscode`, `cursor`, `gemini`
+
+Edit the live list in `site/js/content/stack.js`.
 
 ## Ready to add later
 
@@ -30,6 +32,8 @@ Editors/AI: `neovim`, `vscode`, `cursor`, `gemini`
 { icon: "docker", label: "Docker" },
 { icon: "stm32", label: "STM32" },
 { icon: "ml", label: "ML" },
+{ icon: "linux", label: "Linux" },
+{ icon: "macos", label: "macOS" },
 ```
 
 ## Add a new icon from tech-stack-icons.com

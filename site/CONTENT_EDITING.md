@@ -1,41 +1,66 @@
 # Content Editing Guide
 
-This site is a short practice story + tools grid. Career history and project lists stay on LinkedIn / GitHub so you don’t maintain them twice.
+Career history and project lists stay on LinkedIn / GitHub so you don’t maintain them twice.
 
-| What you want to change | File | Where |
-|---|---|---|
-| Story / about copy | `site/index.html` | `The practice` section |
-| Hero opening line | `site/index.html` | `.bio` in the hero |
-| Socials + tool icons | `site/app.js` | `PROFILE.socials` / `PROFILE.stack` |
-| Colors | `site/css/theme.css` | `:root` / `:root.light` |
-| Layout CSS | `site/css/*.css` | imported by `styles.css` |
-| Tech icons | `site/assets/icons/` | `{name}-light.svg` / `{name}-dark.svg` |
-| Photo | `site/assets/profile.jpg` | replace the file |
-| Resume PDF | `site/Thiwankas.pdf` | replace the file |
+## Where to edit
 
-## Page flow
+| What | File |
+|---|---|
+| **Learn-loop text (01 / 02 / 03)** | `site/js/content/learn-loop.js` |
+| Social links | `site/js/content/socials.js` |
+| Tools / icons grid | `site/js/content/stack.js` |
+| Hero bio line | `site/index.html` → `.bio` |
+| Who I am / What keeps me going | `site/index.html` → `.story-block` |
+| Colors | `site/css/theme.css` |
+| Photo | `site/assets/profile.jpg` |
+| Resume | `site/Thiwankas.pdf` |
 
-1. Top bar + hero (identity, opening line, Resume / socials)
-2. **The practice** — who you are, how layers connect, what keeps you going
-3. **Tools & environment** — compact icon grid
-4. Footer
+## JS layout
 
-## Tools grid
-
-In `app.js` → `PROFILE.stack`:
-
-```js
-{ icon: "python", label: "Python" }
+```
+site/js/
+  main.js                 ← boots everything (loaded by index.html)
+  content/
+    learn-loop.js         ← EDIT learn-loop copy
+    socials.js            ← EDIT social links
+    stack.js              ← EDIT tools grid
+  render-learn-loop.js    ← builds the board DOM
+  render-socials.js
+  render-stack.js
+  theme.js                ← light / dark toggle
+  learn-loop-ring.js      ← SVG wedge paths (visual only)
+  lib/escape-html.js
 ```
 
-Needs matching files: `assets/icons/python-light.svg` and `python-dark.svg`.
+## Learn loop example
+
+In `site/js/content/learn-loop.js`:
+
+```js
+export const learnLoop = {
+  coreTitle: "How I learn",
+  coreSub: "closed loop",
+  steps: [
+    {
+      key: "notice",   // keep: notice | guide | build
+      index: "01",
+      title: "Problem · idea · tech",
+      desc: "Your description…"
+    },
+    // …
+  ]
+};
+```
+
+Do **not** rename the `key` values — they place each step on the board.
 
 ## Local preview
 
+Serve the `site` folder over HTTP (ES modules need a server, not `file://`):
+
 ```bash
-python3 -m http.server 8080
+cd site && python3 -m http.server 8080
 ```
 
-Open `http://localhost:8080/site/`
-
+Open `http://localhost:8080/` — check desktop and a phone-sized window.
 Hard-refresh after edits if the browser caches CSS/JS.

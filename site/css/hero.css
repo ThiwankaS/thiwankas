@@ -72,7 +72,10 @@
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.65;
+  text-align: justify;
+  text-align-last: left;
   text-wrap: pretty;
+  hyphens: auto;
 }
 
 .bio p:first-child {
@@ -142,5 +145,24 @@
 @media (max-width: 480px) {
   .identity {
     align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .photo-wrap,
+  .profile-photo {
+    width: 72px;
+    height: 72px;
+  }
+
+  .bio {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .bio p {
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    width: 100%;
   }
 }

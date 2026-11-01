@@ -70,5 +70,15 @@
 @media (max-width: 420px) {
   .stack-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.4rem 0.25rem;
+  }
+
+  .stack-mark {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .stack-label {
+    font-size: 0.58rem;
   }
 }
